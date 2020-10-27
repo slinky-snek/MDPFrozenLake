@@ -1,16 +1,22 @@
+# Aaron Barnett
+# acba242@uky.edu
+
 import gym
 import numpy as np
 
 
+# Dyna-Q = not implemented
+# def dyna-q():
+
 # Q-Learning = doesn't work
-# suggest decay policy for epsilon
+# suggest decay policy for epsilon, might help with convergence
 def q_learning():
     Q = np.zeros((16, 4))  # Q table
     epsilon = 0.2  # exploration rate
     alpha = 0.1  # learning rate
     gamma = 0.99  # reward discount
     env = gym.make('FrozenLake-v0')
-    for episode in range(10):
+    for episode in range(1000):
         observation_orig = env.reset()
         episode_reward = 0
         for time_step in range(100):
@@ -29,15 +35,15 @@ def q_learning():
             episode_reward += reward
             if done:
                 print("Episode finished after {} time steps".format(time_step + 1))
-                print("Cumulative reward is {}".format(episode_reward))
+                print("Episode reward is {}".format(episode_reward))
                 break
     env.close()
 
 
-# SARSA = doesn't work
+# SARSA = not implemented
 def sarsa():
     env = gym.make('FrozenLake-v0')
-    for episode in range(10):
+    for episode in range(1000):
         observation = env.reset()
         for t in range(100):
             env.render()
@@ -50,4 +56,6 @@ def sarsa():
     env.close()
 
 
+# dyna-q()
 q_learning()
+# sarsa()
