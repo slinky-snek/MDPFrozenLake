@@ -1,5 +1,4 @@
 # Aaron Barnett
-# acba242@uky.edu
 
 import gym
 import numpy as np
